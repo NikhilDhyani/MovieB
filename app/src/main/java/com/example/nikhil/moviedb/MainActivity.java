@@ -2,6 +2,7 @@ package com.example.nikhil.moviedb;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv_id);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
 
         //recyclerView.setAdapter(getApplicationContext(),userr);
         loadJson();
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
 //                Log.d("Title",results.get(0).getTitle());
 
-                recyclerView.setAdapter(new RV_Adapter(MainActivity.this,results));
+                recyclerView.setAdapter(new MultiViewTypeAdapter(MainActivity.this,results));
 
 
 

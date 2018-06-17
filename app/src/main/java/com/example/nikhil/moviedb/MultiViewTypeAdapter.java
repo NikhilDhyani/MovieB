@@ -1,10 +1,5 @@
 package com.example.nikhil.moviedb;
 
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.view.ViewGroup;
-
-
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -19,15 +14,16 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import java.util.List;
 
 /**
- * Created by NIKHIL on 15-06-2018.
+ * Created by NIKHIL on 17-06-2018.
  */
 
-public class RV_Adapter extends RecyclerView.Adapter<RV_Adapter.myViewHolder> {
+public class MultiViewTypeAdapter extends RecyclerView.Adapter<MultiViewTypeAdapter.myViewHolder>
+{
 
     Context mcontext;
-   List<Result> mphotos;
+    List<Result> mphotos;
 
-    public RV_Adapter(Context mcontext,  List<Result> mphotos) {
+    public MultiViewTypeAdapter(Context mcontext, List<Result> mphotos) {
         this.mcontext = mcontext;
         this.mphotos = mphotos;
     }
@@ -35,12 +31,12 @@ public class RV_Adapter extends RecyclerView.Adapter<RV_Adapter.myViewHolder> {
     @Override
     public myViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
+
         //Here we the context
         LayoutInflater inflater = LayoutInflater.from(mcontext);
         View view = inflater.inflate(R.layout.card_view,null,false);
 
-        return new myViewHolder(view);
-
+        return new MultiViewTypeAdapter.myViewHolder(view);
 
     }
 
@@ -57,12 +53,8 @@ public class RV_Adapter extends RecyclerView.Adapter<RV_Adapter.myViewHolder> {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(holder.imageView);
 
-       // holder.description.setText(mphotos.get(position).getOverview());
+     //   holder.description.setText(mphotos.get(position).getOverview());
 
-
-
-        //Photo listPhotos = mphotos.get(position);
-        //holder.tv.setText(listPhotos.getName());
 
     }
 
@@ -83,7 +75,7 @@ public class RV_Adapter extends RecyclerView.Adapter<RV_Adapter.myViewHolder> {
 
             tv = itemView.findViewById(R.id.ctv_id);
             imageView = itemView.findViewById(R.id.ctv_imageView);
-            //description = itemView.findViewById(R.id.ctv_desc);
+          //  description = itemView.findViewById(R.id.Description);
         }
     }
 }
