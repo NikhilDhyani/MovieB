@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#2d2d2d"
+    tools:context="com.example.nikhil.moviedb.DetailActivity">
+
+   <android.support.v7.widget.CardView
+
+
+       android:layout_width="200dp"
+       android:layout_height="200dp"
+       android:background="#2d2d2d"
+       android:id="@+id/D_cvid">
+
+       <ImageView
+           android:background="#2d2d2d"
+           android:layout_margin="1.5dp"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:id="@+id/d_img"
+           android:scaleType="centerCrop"/>
+
+
+   </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Overview"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#2d2d2d"
+        android:textColor="#FFFFFF"
+        android:padding="3dp"
+
+        android:textSize="19sp"
+        android:lineSpacingExtra="2dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="center"
+        android:layout_height="180dp"
+        android:lines="6"
+        android:minLines="4"
+        android:id="@+id/d_multiTv"
+        android:maxLines="8"
+        android:scrollbars="vertical"
+        android:inputType="textMultiLine"
+        />
+
+
+</LinearLayout>

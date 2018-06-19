@@ -17,7 +17,7 @@ public interface API {
     String base_url = "https://api.themoviedb.org/3/movie/";
 
     //Enter end point and method
-    @GET("popular?api_key=5c31b55061715e0b80b472a0702966b9")
+    @GET("popular?api_key=Your Api Key")
     //Call<List<Result>> getMovies();
 
     Call<PopularMovies> getMovies();

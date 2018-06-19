@@ -1,6 +1,8 @@
 package com.example.nikhil.moviedb;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,11 +43,29 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<MultiViewTypeAdap
     }
 
     @Override
-    public void onBindViewHolder(myViewHolder holder, int position) {
+    public void onBindViewHolder(myViewHolder holder, final int position) {
 
         holder.tv.setText(mphotos.get(position).getTitle());
         String url = mphotos.get(position).getPosterPath();
         String final_url = "https://image.tmdb.org/t/p/h632/"+url;
+
+
+        //Setting onClickListner
+
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(mcontext,DetailActivity.class);
+
+             //   intent.putExtra("Title",mphotos.get(position).getName());
+                intent.putExtra("Photo",mphotos.get(position).getBackdropPath());
+              //  intent.putExtra("id",mphotos.get(position).getId());
+                intent.putExtra("Desc",mphotos.get(position).getOverview());
+                mcontext.startActivity(intent);
+            }
+        });
+
 
         Glide.with(mcontext).load(final_url)
                 .thumbnail(0.5f)
@@ -68,9 +88,12 @@ public class MultiViewTypeAdapter extends RecyclerView.Adapter<MultiViewTypeAdap
         TextView tv,description;
         ImageView imageView;
 
+         CardView cardView;
 
         public myViewHolder(View itemView) {
             super(itemView);
+
+            cardView = itemView.findViewById(R.id.cv_id);
 
 
             tv = itemView.findViewById(R.id.ctv_id);

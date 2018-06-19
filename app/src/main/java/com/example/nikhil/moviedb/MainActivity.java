@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv_id);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),3));
+        recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(),2));
 
         //recyclerView.setAdapter(getApplicationContext(),userr);
         loadJson();
